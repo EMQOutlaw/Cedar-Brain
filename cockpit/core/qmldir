@@ -1,0 +1,4 @@
+singleton Theme 1.0 Theme.qml
+singleton BrainConnection 1.0 BrainConnection.qml
+singleton BrainStore 1.0 BrainStore.qml
+singleton NavigationState 1.0 NavigationState.qml

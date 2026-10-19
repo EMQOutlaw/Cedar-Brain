@@ -1,0 +1,84 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-028",
+      "method": "runs.events",
+      "params": {
+        "run_id": "run_f14c56d3decb4acf",
+        "after_seq": 0,
+        "limit": 5
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-028",
+      "ok": true,
+      "result": {
+        "run_id": "run_f14c56d3decb4acf",
+        "events": [
+          {
+            "seq": 1,
+            "ts": 1792375408.5246646,
+            "event": "run.updated",
+            "data": {
+              "run_id": "run_f14c56d3decb4acf",
+              "seq": 1,
+              "status": "queued",
+              "workflow_id": "wf_173f3a34d1994fdb"
+            }
+          },
+          {
+            "seq": 2,
+            "ts": 1792375408.5249906,
+            "event": "run.updated",
+            "data": {
+              "run_id": "run_f14c56d3decb4acf",
+              "seq": 2,
+              "status": "running"
+            }
+          },
+          {
+            "seq": 3,
+            "ts": 1792375408.5250635,
+            "event": "run.step.updated",
+            "data": {
+              "run_id": "run_f14c56d3decb4acf",
+              "seq": 3,
+              "step_id": "status",
+              "state": "ready",
+              "previous": "pending"
+            }
+          },
+          {
+            "seq": 4,
+            "ts": 1792375408.5252204,
+            "event": "run.step.updated",
+            "data": {
+              "run_id": "run_f14c56d3decb4acf",
+              "seq": 4,
+              "step_id": "status",
+              "state": "running",
+              "previous": "ready"
+            }
+          },
+          {
+            "seq": 5,
+            "ts": 1792375408.5298533,
+            "event": "run.step.updated",
+            "data": {
+              "run_id": "run_f14c56d3decb4acf",
+              "seq": 5,
+              "step_id": "status",
+              "state": "succeeded",
+              "previous": "running"
+            }
+          }
+        ],
+        "last_seq": 5,
+        "more": true
+      }
+    }
+  }
+]

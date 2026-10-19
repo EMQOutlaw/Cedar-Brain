@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=CEDAR Brain
+GenericName=Agent workflows
+Comment=CEDAR Brain (Mycelium): plan, approve and run Claude Code and Codex workflows on your projects
+Exec=cedar-brain-cockpit
+TryExec=qs
+Icon=cedar-brain
+Terminal=false
+Categories=Development;
+Keywords=ai;claude;codex;agents;brain;mycelium;workflow;cedar;
+StartupNotify=false

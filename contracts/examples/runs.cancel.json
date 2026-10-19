@@ -1,0 +1,45 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-031",
+      "method": "runs.cancel",
+      "params": {
+        "run_id": "run_fa5f105ffc0e4b5a"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-031",
+      "ok": true,
+      "result": {
+        "id": "run_fa5f105ffc0e4b5a",
+        "workflow_id": "wf_c1e561d2fb9f4612",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "status": "cancelled",
+        "error": {
+          "code": "CANCELLED",
+          "message": "run cancelled"
+        },
+        "created_at": 1792375409.5542738,
+        "started_at": 1792375409.554413,
+        "finished_at": 1792375410.1555192,
+        "steps": [
+          {
+            "step_id": "think",
+            "state": "cancelled",
+            "executor": "agent.claude",
+            "started_at": 1792375409.5545561,
+            "finished_at": 1792375410.1554391,
+            "result": null,
+            "error": null,
+            "worktree": null,
+            "verification": []
+          }
+        ],
+        "last_seq": 10
+      }
+    }
+  }
+]

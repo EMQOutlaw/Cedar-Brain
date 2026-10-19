@@ -1,0 +1,15 @@
+{"after_ms": 150, "event": "run.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 1, "status": "queued", "workflow_id": "wf_173f3a34d1994fdb"}}
+{"after_ms": 150, "event": "run.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 2, "status": "running"}}
+{"after_ms": 150, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 3, "step_id": "status", "state": "ready", "previous": "pending"}}
+{"after_ms": 150, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 4, "step_id": "status", "state": "running", "previous": "ready"}}
+{"after_ms": 150, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 5, "step_id": "status", "state": "succeeded", "previous": "running"}}
+{"after_ms": 150, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 6, "step_id": "summarise", "state": "ready", "previous": "pending"}}
+{"after_ms": 150, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 7, "step_id": "summarise", "state": "running", "previous": "ready"}}
+{"after_ms": 150, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 8, "step_id": "summarise", "kind": "status", "text": "session started"}}
+{"after_ms": 150, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 9, "step_id": "summarise", "kind": "message", "text": "working\u2026"}}
+{"after_ms": 200, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 10, "step_id": "summarise", "kind": "message", "text": "working\u2026"}}
+{"after_ms": 200, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 11, "step_id": "summarise", "kind": "message", "text": "working\u2026"}}
+{"after_ms": 200, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 12, "step_id": "summarise", "kind": "message", "text": "working\u2026"}}
+{"after_ms": 200, "event": "run.output", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 13, "step_id": "summarise", "kind": "message", "text": "working\u2026"}}
+{"after_ms": 203, "event": "run.step.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 14, "step_id": "summarise", "state": "succeeded", "previous": "running"}}
+{"after_ms": 150, "event": "run.updated", "data": {"run_id": "run_f14c56d3decb4acf", "seq": 15, "status": "succeeded"}}

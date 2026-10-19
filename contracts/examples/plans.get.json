@@ -1,0 +1,70 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-021",
+      "method": "plans.get",
+      "params": {
+        "plan_id": "pln_2061d1a5b882462a"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-021",
+      "ok": true,
+      "result": {
+        "id": "pln_2061d1a5b882462a",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "objective": "Summarise how Canopy renders strata FAKE_PLAN",
+        "agent_id": "claude",
+        "status": "ready",
+        "plan": {
+          "name": "Inspect project",
+          "summary": "Look at the repo, then summarise.",
+          "steps": [
+            {
+              "id": "status",
+              "description": "Check git state",
+              "executor": "git.status",
+              "inputs": {},
+              "depends_on": [],
+              "expected_output": "branch and cleanliness",
+              "approval_required": false,
+              "validation": "exit_status",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            },
+            {
+              "id": "summarise",
+              "description": "Summarise the project",
+              "executor": "agent.claude",
+              "inputs": {
+                "prompt": "Summarise this repository. FAKE_SLEEP=1"
+              },
+              "depends_on": [
+                "status"
+              ],
+              "expected_output": "short summary",
+              "approval_required": false,
+              "validation": "non_empty_result",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            }
+          ]
+        },
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "unsupported_steps": [],
+          "executable": true
+        },
+        "error": null,
+        "created_at": 1792375408.4717522,
+        "updated_at": 1792375408.4970646
+      }
+    }
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-011",
+      "method": "cortex.impact",
+      "params": {
+        "path": "src/NotificationService.qml"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-011",
+      "ok": true,
+      "result": {
+        "targets": [
+          "notifications"
+        ],
+        "depth": 2,
+        "impacted": [
+          {
+            "id": "whispers",
+            "label": "Whispers.qml",
+            "file_type": "code",
+            "source_file": "src/Whispers.qml",
+            "source_location": "L1",
+            "community": 1,
+            "community_name": "Shell",
+            "distance": 1,
+            "via": {
+              "to": "notifications",
+              "relation": "calls",
+              "evidence": "inferred"
+            },
+            "path_evidence": "inferred"
+          },
+          {
+            "id": "bar",
+            "label": "Bar.qml",
+            "file_type": "code",
+            "source_file": "src/Bar.qml",
+            "source_location": "L1",
+            "community": 1,
+            "community_name": "Shell",
+            "distance": 1,
+            "via": {
+              "to": "notifications",
+              "relation": "references",
+              "evidence": "ambiguous"
+            },
+            "path_evidence": "ambiguous"
+          }
+        ],
+        "truncated": false,
+        "files": [
+          "src/Bar.qml",
+          "src/Whispers.qml"
+        ],
+        "relationship_kind": "static",
+        "note": "Relationships are static code relationships from the Graphify graph; they do not prove runtime dependencies. 'inferred' and 'ambiguous' edges are suggestions. Impact is a candidate list for review, not a proof of breakage."
+      }
+    }
+  }
+]

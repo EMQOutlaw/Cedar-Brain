@@ -1,0 +1,15 @@
+[Unit]
+Description=CEDAR Brain — Mycelium backend (local Unix socket)
+Documentation=file://%h/.local/share/cedar-brain/README.md
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cedar-brain serve
+Restart=on-failure
+RestartSec=3
+# The server only listens on $XDG_RUNTIME_DIR/cedar-brain/brain.sock (0600).
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,145 @@
+[
+  {
+    "note": "invalid plan: unknown executor",
+    "request": {
+      "v": 1,
+      "id": "req-022",
+      "method": "plans.validate",
+      "params": {
+        "plan": {
+          "title": "bad",
+          "steps": [
+            {
+              "id": "a",
+              "description": "x",
+              "executor": "shell.exec",
+              "inputs": {},
+              "depends_on": [
+                "a"
+              ],
+              "expected_output": "",
+              "approval_required": false,
+              "validation": "exit_status"
+            }
+          ]
+        }
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-022",
+      "ok": true,
+      "result": {
+        "valid": false,
+        "errors": [
+          {
+            "step": "a",
+            "field": "executor",
+            "message": "unknown executor 'shell.exec'; allowed: ['agent.claude', 'agent.codex', 'cortex.impact', 'cortex.search', 'git.status']"
+          },
+          {
+            "step": "a",
+            "field": "depends_on",
+            "message": "a step cannot depend on itself"
+          }
+        ],
+        "unsupported_steps": [],
+        "executable": false,
+        "plan": null
+      }
+    }
+  },
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-023",
+      "method": "plans.validate",
+      "params": {
+        "plan": {
+          "name": "Inspect project",
+          "summary": "Look at the repo, then summarise.",
+          "steps": [
+            {
+              "id": "status",
+              "description": "Check git state",
+              "executor": "git.status",
+              "inputs": {},
+              "depends_on": [],
+              "expected_output": "branch and cleanliness",
+              "approval_required": false,
+              "validation": "exit_status",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            },
+            {
+              "id": "summarise",
+              "description": "Summarise the project",
+              "executor": "agent.claude",
+              "inputs": {
+                "prompt": "Summarise this repository. FAKE_SLEEP=1"
+              },
+              "depends_on": [
+                "status"
+              ],
+              "expected_output": "short summary",
+              "approval_required": false,
+              "validation": "non_empty_result",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            }
+          ]
+        }
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-023",
+      "ok": true,
+      "result": {
+        "valid": true,
+        "errors": [],
+        "unsupported_steps": [],
+        "executable": true,
+        "plan": {
+          "name": "Inspect project",
+          "summary": "Look at the repo, then summarise.",
+          "steps": [
+            {
+              "id": "status",
+              "description": "Check git state",
+              "executor": "git.status",
+              "inputs": {},
+              "depends_on": [],
+              "expected_output": "branch and cleanliness",
+              "approval_required": false,
+              "validation": "exit_status",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            },
+            {
+              "id": "summarise",
+              "description": "Summarise the project",
+              "executor": "agent.claude",
+              "inputs": {
+                "prompt": "Summarise this repository. FAKE_SLEEP=1"
+              },
+              "depends_on": [
+                "status"
+              ],
+              "expected_output": "short summary",
+              "approval_required": false,
+              "validation": "non_empty_result",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            }
+          ]
+        }
+      }
+    }
+  }
+]

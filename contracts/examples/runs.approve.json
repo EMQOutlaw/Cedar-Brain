@@ -1,0 +1,25 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-030",
+      "method": "runs.approve",
+      "params": {
+        "run_id": "run_6f04fd14f4c34e0f",
+        "step_id": "edit",
+        "approve": false
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-030",
+      "ok": true,
+      "result": {
+        "run_id": "run_6f04fd14f4c34e0f",
+        "step_id": "edit",
+        "approved": false
+      }
+    }
+  }
+]

@@ -1,0 +1,1181 @@
+{
+  "system.health": {
+    "status": "ok",
+    "version": "0.1.0",
+    "protocol": 1,
+    "instance_id": "16fa65b121c6",
+    "pid": 162979,
+    "uptime_s": 0.0,
+    "database": {
+      "ok": true,
+      "schema_version": 1,
+      "expected_schema_version": 1
+    },
+    "active_runs": 0,
+    "active_agent_jobs": 0,
+    "active_project_id": null
+  },
+  "system.capabilities": {
+    "protocol": 1,
+    "version": "0.1.0",
+    "features": {
+      "ipc.unix_socket": {
+        "status": "supported"
+      },
+      "ipc.event_subscriptions": {
+        "status": "supported"
+      },
+      "projects.registry": {
+        "status": "supported"
+      },
+      "cortex.queries": {
+        "status": "supported"
+      },
+      "cortex.graph_update": {
+        "status": "unavailable",
+        "reason": "graphify executable not found"
+      },
+      "skills.local_discovery": {
+        "status": "supported"
+      },
+      "skills.local_import": {
+        "status": "supported"
+      },
+      "skills.remote_install": {
+        "status": "not_implemented",
+        "reason": "planned after local discovery is proven"
+      },
+      "skills.execution": {
+        "status": "not_implemented",
+        "reason": "skills are inspected, never executed, in this release"
+      },
+      "agents.claude": {
+        "status": "supported"
+      },
+      "agents.codex": {
+        "status": "supported"
+      },
+      "agents.claude.write": {
+        "status": "unavailable",
+        "reason": "claude -p has no OS-level sandbox; Claude steps are read-only"
+      },
+      "agents.codex.write": {
+        "status": "supported"
+      },
+      "agents.session_resume": {
+        "status": "not_implemented",
+        "reason": "sessions are recorded, never resumed"
+      },
+      "agents.ollama": {
+        "status": "not_implemented",
+        "reason": "planned for a later stage"
+      },
+      "pathfinder.plans": {
+        "status": "supported"
+      },
+      "hyphae.workflows": {
+        "status": "supported"
+      },
+      "hyphae.parallel_steps": {
+        "status": "supported"
+      },
+      "hyphae.step_approval": {
+        "status": "supported"
+      },
+      "hyphae.auto_merge": {
+        "status": "not_implemented",
+        "reason": "by design: never merges or pushes"
+      },
+      "remote_access": {
+        "status": "not_implemented",
+        "reason": "by design: local Unix socket only"
+      }
+    },
+    "methods": [
+      "agents.list",
+      "agents.status",
+      "cortex.communities",
+      "cortex.dependencies",
+      "cortex.impact",
+      "cortex.node",
+      "cortex.reload",
+      "cortex.search",
+      "cortex.status",
+      "events.subscribe",
+      "events.unsubscribe",
+      "plans.create",
+      "plans.get",
+      "plans.validate",
+      "projects.add",
+      "projects.list",
+      "projects.remove",
+      "projects.select",
+      "projects.set_graph",
+      "projects.status",
+      "runs.approve",
+      "runs.cancel",
+      "runs.events",
+      "runs.get",
+      "runs.list",
+      "runs.start",
+      "skills.import_local",
+      "skills.inspect",
+      "skills.list",
+      "system.capabilities",
+      "system.health",
+      "workflows.create",
+      "workflows.get",
+      "workflows.list"
+    ],
+    "executors": [
+      {
+        "id": "agent.claude",
+        "description": "Claude Code CLI, read-only tools (Read, Grep, Glob) in the project root",
+        "modes": [
+          "read_only"
+        ],
+        "inputs": {
+          "prompt": {
+            "type": "str",
+            "required": true
+          }
+        }
+      },
+      {
+        "id": "agent.codex",
+        "description": "Codex CLI. read_only: OS sandbox, read-only. write: OS sandbox limited to a fresh git worktree; requires approval",
+        "modes": [
+          "read_only",
+          "write"
+        ],
+        "inputs": {
+          "prompt": {
+            "type": "str",
+            "required": true
+          }
+        }
+      },
+      {
+        "id": "cortex.search",
+        "description": "Search the project's Graphify graph (deterministic, no model)",
+        "modes": [
+          "read_only"
+        ],
+        "inputs": {
+          "query": {
+            "type": "str",
+            "required": true
+          },
+          "limit": {
+            "type": "int",
+            "required": false
+          }
+        }
+      },
+      {
+        "id": "cortex.impact",
+        "description": "List components that statically depend on a node or file (deterministic)",
+        "modes": [
+          "read_only"
+        ],
+        "inputs": {
+          "node_ids": {
+            "type": "list",
+            "required": false
+          },
+          "path": {
+            "type": "str",
+            "required": false
+          },
+          "depth": {
+            "type": "int",
+            "required": false
+          }
+        }
+      },
+      {
+        "id": "git.status",
+        "description": "Report branch, HEAD and working-tree cleanliness (read-only)",
+        "modes": [
+          "read_only"
+        ],
+        "inputs": {}
+      }
+    ],
+    "limits": {
+      "max_message_bytes": 1048576,
+      "max_plan_steps": 12,
+      "max_parallel_steps": 2,
+      "max_agent_processes": 2,
+      "default_step_timeout_s": 30
+    },
+    "event_topics": [
+      "system",
+      "project",
+      "cortex",
+      "agent",
+      "plan",
+      "run"
+    ]
+  },
+  "events.subscribe": {
+    "topics": [
+      "plan",
+      "project",
+      "run"
+    ]
+  },
+  "projects.add": {
+    "id": "prj_6db47f0b207c4f2b",
+    "name": "cedar-shell",
+    "root": "/home/user/src/cedar-shell",
+    "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+    "graph_path_explicit": false,
+    "created_at": 1792375408.4509656,
+    "updated_at": 1792375408.4509656
+  },
+  "projects.list": {
+    "projects": [
+      {
+        "id": "prj_6db47f0b207c4f2b",
+        "name": "cedar-shell",
+        "root": "/home/user/src/cedar-shell",
+        "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+        "graph_path_explicit": false,
+        "created_at": 1792375408.4509656,
+        "updated_at": 1792375408.4509656
+      }
+    ],
+    "active_project_id": "prj_6db47f0b207c4f2b"
+  },
+  "projects.select": {
+    "id": "prj_6db47f0b207c4f2b",
+    "name": "cedar-shell",
+    "root": "/home/user/src/cedar-shell",
+    "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+    "graph_path_explicit": false,
+    "created_at": 1792375408.4509656,
+    "updated_at": 1792375408.4509656
+  },
+  "projects.status": {
+    "project": {
+      "id": "prj_6db47f0b207c4f2b",
+      "name": "cedar-shell",
+      "root": "/home/user/src/cedar-shell",
+      "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+      "graph_path_explicit": false,
+      "created_at": 1792375408.4509656,
+      "updated_at": 1792375408.4509656
+    },
+    "active": true,
+    "git": {
+      "valid": true,
+      "branch": "main",
+      "detached": false,
+      "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+      "clean": true,
+      "changed_files": 0,
+      "error": null
+    },
+    "graph": {
+      "path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+      "state": "present"
+    },
+    "capabilities": {
+      "git_status": true,
+      "cortex": true,
+      "worktrees": true
+    }
+  },
+  "cortex.status": {
+    "project_id": "prj_6db47f0b207c4f2b",
+    "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+    "loaded": true,
+    "state": "loaded",
+    "nodes": 8,
+    "edges": 6,
+    "communities": 3,
+    "relations": {
+      "imports": 2,
+      "contains": 1,
+      "calls": 1,
+      "references": 1,
+      "cites": 1
+    },
+    "directed": true,
+    "schema_version": "2",
+    "graphify_version": "0.9.92",
+    "malformed": {
+      "nodes": 1,
+      "links": 1,
+      "dangling_links": 1
+    },
+    "freshness": {
+      "state": "fresh",
+      "built_at_commit": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+      "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+      "commits_behind": null,
+      "graph_mtime": 1792375408.386936,
+      "age_s": 0.1,
+      "changed_on_disk": false
+    }
+  },
+  "cortex.search": {
+    "results": [
+      {
+        "id": "strata_geometry",
+        "label": "StrataGeometry.js",
+        "file_type": "code",
+        "source_file": "src/StrataGeometry.js",
+        "source_location": "L1",
+        "community": 0,
+        "community_name": "Rendering",
+        "score": 70
+      },
+      {
+        "id": "strata_geometry.build",
+        "label": "build()",
+        "file_type": "code",
+        "source_file": "src/StrataGeometry.js",
+        "source_location": "L10",
+        "community": 0,
+        "community_name": "Rendering",
+        "score": 40
+      }
+    ]
+  },
+  "cortex.dependencies": {
+    "root": "strata_geometry",
+    "direction": "in",
+    "depth": 2,
+    "nodes": [
+      {
+        "id": "canopy",
+        "label": "Canopy.qml",
+        "file_type": "code",
+        "source_file": "src/Canopy.qml",
+        "source_location": "L1",
+        "community": 0,
+        "community_name": "Rendering",
+        "distance": 1,
+        "via": {
+          "from": "strata_geometry",
+          "relation": "imports",
+          "evidence": "static_extracted"
+        }
+      },
+      {
+        "id": "bar",
+        "label": "Bar.qml",
+        "file_type": "code",
+        "source_file": "src/Bar.qml",
+        "source_location": "L1",
+        "community": 1,
+        "community_name": "Shell",
+        "distance": 2,
+        "via": {
+          "from": "canopy",
+          "relation": "imports",
+          "evidence": "static_extracted"
+        }
+      },
+      {
+        "id": "design_doc",
+        "label": "Design notes",
+        "file_type": "doc_ref",
+        "source_file": "docs/design.md",
+        "source_location": null,
+        "community": 2,
+        "community_name": null,
+        "distance": 2,
+        "via": {
+          "from": "canopy",
+          "relation": "cites",
+          "evidence": "static_extracted"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "canopy",
+        "target": "strata_geometry",
+        "relation": "imports",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      },
+      {
+        "source": "bar",
+        "target": "canopy",
+        "relation": "imports",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      },
+      {
+        "source": "design_doc",
+        "target": "canopy",
+        "relation": "cites",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      }
+    ],
+    "truncated": false,
+    "relationship_kind": "static",
+    "note": "Relationships are static code relationships from the Graphify graph; they do not prove runtime dependencies. 'inferred' and 'ambiguous' edges are suggestions."
+  },
+  "cortex.impact": {
+    "targets": [
+      "notifications"
+    ],
+    "depth": 2,
+    "impacted": [
+      {
+        "id": "whispers",
+        "label": "Whispers.qml",
+        "file_type": "code",
+        "source_file": "src/Whispers.qml",
+        "source_location": "L1",
+        "community": 1,
+        "community_name": "Shell",
+        "distance": 1,
+        "via": {
+          "to": "notifications",
+          "relation": "calls",
+          "evidence": "inferred"
+        },
+        "path_evidence": "inferred"
+      },
+      {
+        "id": "bar",
+        "label": "Bar.qml",
+        "file_type": "code",
+        "source_file": "src/Bar.qml",
+        "source_location": "L1",
+        "community": 1,
+        "community_name": "Shell",
+        "distance": 1,
+        "via": {
+          "to": "notifications",
+          "relation": "references",
+          "evidence": "ambiguous"
+        },
+        "path_evidence": "ambiguous"
+      }
+    ],
+    "truncated": false,
+    "files": [
+      "src/Bar.qml",
+      "src/Whispers.qml"
+    ],
+    "relationship_kind": "static",
+    "note": "Relationships are static code relationships from the Graphify graph; they do not prove runtime dependencies. 'inferred' and 'ambiguous' edges are suggestions. Impact is a candidate list for review, not a proof of breakage."
+  },
+  "cortex.node": {
+    "node": {
+      "id": "canopy",
+      "label": "Canopy.qml",
+      "file_type": "code",
+      "source_file": "src/Canopy.qml",
+      "source_location": "L1",
+      "community": 0,
+      "community_name": "Rendering"
+    },
+    "outgoing": [
+      {
+        "source": "canopy",
+        "target": "strata_geometry",
+        "relation": "imports",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      }
+    ],
+    "incoming": [
+      {
+        "source": "bar",
+        "target": "canopy",
+        "relation": "imports",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      },
+      {
+        "source": "design_doc",
+        "target": "canopy",
+        "relation": "cites",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "evidence": "static_extracted",
+        "source_file": null
+      }
+    ],
+    "outgoing_total": 1,
+    "incoming_total": 2,
+    "relationship_kind": "static",
+    "source": {
+      "reference": "src/Canopy.qml",
+      "path": "/home/user/src/cedar-shell/src/Canopy.qml",
+      "within_project": true,
+      "exists": true,
+      "line": 1
+    }
+  },
+  "cortex.communities": {
+    "communities": [
+      {
+        "id": 0,
+        "name": "Rendering",
+        "size": 3,
+        "sample": [
+          "StrataGeometry.js",
+          "build()",
+          "Canopy.qml"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Shell",
+        "size": 3,
+        "sample": [
+          "Bar.qml",
+          "NotificationService.qml",
+          "Whispers.qml"
+        ]
+      },
+      {
+        "id": 2,
+        "name": null,
+        "size": 1,
+        "sample": [
+          "Design notes"
+        ]
+      }
+    ],
+    "total": 3,
+    "truncated": false
+  },
+  "cortex.reload": {
+    "project_id": "prj_6db47f0b207c4f2b",
+    "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+    "loaded": true,
+    "state": "loaded",
+    "nodes": 8,
+    "edges": 6,
+    "communities": 3,
+    "relations": {
+      "imports": 2,
+      "contains": 1,
+      "calls": 1,
+      "references": 1,
+      "cites": 1
+    },
+    "directed": true,
+    "schema_version": "2",
+    "graphify_version": "0.9.92",
+    "malformed": {
+      "nodes": 1,
+      "links": 1,
+      "dangling_links": 1
+    },
+    "freshness": {
+      "state": "fresh",
+      "built_at_commit": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+      "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+      "commits_behind": null,
+      "graph_mtime": 1792375408.386936,
+      "age_s": 0.1,
+      "changed_on_disk": false
+    }
+  },
+  "skills.list": {
+    "skills": [
+      {
+        "id": "skl_e96e1bac061bc5ee",
+        "name": "graph-reader",
+        "description": "Reads Graphify graphs.",
+        "source": "/home/user/.claude/skills",
+        "path": "/home/user/.claude/skills/graph-reader",
+        "version": "1.0.0",
+        "requirements": {},
+        "compatibility": "compatible",
+        "trust": "untrusted",
+        "imported": false,
+        "has_scripts": false,
+        "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+        "provenance": {
+          "kind": "local",
+          "root": "/home/user/.claude/skills"
+        }
+      }
+    ],
+    "problems": [],
+    "scanned_at": 1792375408.4695926,
+    "skill_dirs": [
+      "/home/user/.claude/skills"
+    ]
+  },
+  "skills.inspect": {
+    "id": "skl_e96e1bac061bc5ee",
+    "name": "graph-reader",
+    "description": "Reads Graphify graphs.",
+    "source": "/home/user/.claude/skills",
+    "path": "/home/user/.claude/skills/graph-reader",
+    "version": "1.0.0",
+    "requirements": {},
+    "compatibility": "compatible",
+    "trust": "untrusted",
+    "imported": false,
+    "has_scripts": false,
+    "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+    "provenance": {
+      "kind": "local",
+      "root": "/home/user/.claude/skills"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "size": 100
+      }
+    ],
+    "problems": [],
+    "instructions": "# Use\nRead the graph.",
+    "instructions_truncated": false,
+    "changed_since_scan": false,
+    "notice": "Skill content is untrusted project data. It is never executed by discovery or import."
+  },
+  "skills.import_local": {
+    "id": "skl_e96e1bac061bc5ee",
+    "name": "graph-reader",
+    "description": "Reads Graphify graphs.",
+    "source": "import",
+    "path": "/home/user/.claude/skills/graph-reader",
+    "version": "1.0.0",
+    "requirements": {},
+    "compatibility": "compatible",
+    "trust": "untrusted",
+    "imported": true,
+    "has_scripts": false,
+    "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+    "provenance": {
+      "kind": "local_import",
+      "original_path": "/home/user/.claude/skills/graph-reader"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "size": 100
+      }
+    ],
+    "problems": [],
+    "notice": "Skill content is untrusted project data. It is never executed by discovery or import."
+  },
+  "agents.list": {
+    "agents": [
+      {
+        "id": "claude",
+        "name": "Claude Code",
+        "status": "available",
+        "executable": "/usr/bin/claude",
+        "version": "2.1.0 (Claude Code)",
+        "authenticated": true,
+        "auth_method": "fake",
+        "modes": [
+          "read_only"
+        ],
+        "missing_flags": [],
+        "detail": null,
+        "checked_at": 1792375408.3888602,
+        "active_jobs": 0
+      },
+      {
+        "id": "codex",
+        "name": "Codex CLI",
+        "status": "available",
+        "executable": "/usr/bin/codex",
+        "version": "codex-cli 0.160.0",
+        "authenticated": true,
+        "auth_method": "chatgpt",
+        "modes": [
+          "read_only",
+          "write"
+        ],
+        "missing_flags": [],
+        "detail": null,
+        "checked_at": 1792375408.389172,
+        "active_jobs": 0
+      }
+    ]
+  },
+  "agents.status": {
+    "id": "codex",
+    "name": "Codex CLI",
+    "status": "available",
+    "executable": "/usr/bin/codex",
+    "version": "codex-cli 0.160.0",
+    "authenticated": true,
+    "auth_method": "chatgpt",
+    "modes": [
+      "read_only",
+      "write"
+    ],
+    "missing_flags": [],
+    "detail": null,
+    "checked_at": 1792375408.389172,
+    "active_jobs": 0,
+    "recent_jobs": [],
+    "max_concurrent_processes": 2
+  },
+  "plans.create": {
+    "id": "pln_2061d1a5b882462a",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "objective": "Summarise how Canopy renders strata FAKE_PLAN",
+    "agent_id": "claude",
+    "status": "generating",
+    "plan": null,
+    "validation": null,
+    "error": null,
+    "created_at": 1792375408.4717522,
+    "updated_at": 1792375408.4717522
+  },
+  "plans.get": {
+    "id": "pln_2061d1a5b882462a",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "objective": "Summarise how Canopy renders strata FAKE_PLAN",
+    "agent_id": "claude",
+    "status": "ready",
+    "plan": {
+      "name": "Inspect project",
+      "summary": "Look at the repo, then summarise.",
+      "steps": [
+        {
+          "id": "status",
+          "description": "Check git state",
+          "executor": "git.status",
+          "inputs": {},
+          "depends_on": [],
+          "expected_output": "branch and cleanliness",
+          "approval_required": false,
+          "validation": "exit_status",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        },
+        {
+          "id": "summarise",
+          "description": "Summarise the project",
+          "executor": "agent.claude",
+          "inputs": {
+            "prompt": "Summarise this repository. FAKE_SLEEP=1"
+          },
+          "depends_on": [
+            "status"
+          ],
+          "expected_output": "short summary",
+          "approval_required": false,
+          "validation": "non_empty_result",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        }
+      ]
+    },
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "unsupported_steps": [],
+      "executable": true
+    },
+    "error": null,
+    "created_at": 1792375408.4717522,
+    "updated_at": 1792375408.4970646
+  },
+  "plans.validate": {
+    "valid": true,
+    "errors": [],
+    "unsupported_steps": [],
+    "executable": true,
+    "plan": {
+      "name": "Inspect project",
+      "summary": "Look at the repo, then summarise.",
+      "steps": [
+        {
+          "id": "status",
+          "description": "Check git state",
+          "executor": "git.status",
+          "inputs": {},
+          "depends_on": [],
+          "expected_output": "branch and cleanliness",
+          "approval_required": false,
+          "validation": "exit_status",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        },
+        {
+          "id": "summarise",
+          "description": "Summarise the project",
+          "executor": "agent.claude",
+          "inputs": {
+            "prompt": "Summarise this repository. FAKE_SLEEP=1"
+          },
+          "depends_on": [
+            "status"
+          ],
+          "expected_output": "short summary",
+          "approval_required": false,
+          "validation": "non_empty_result",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        }
+      ]
+    }
+  },
+  "workflows.create": {
+    "id": "wf_173f3a34d1994fdb",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "name": "Inspect project",
+    "definition": {
+      "name": "Inspect project",
+      "summary": "Look at the repo, then summarise.",
+      "steps": [
+        {
+          "id": "status",
+          "description": "Check git state",
+          "executor": "git.status",
+          "inputs": {},
+          "depends_on": [],
+          "expected_output": "branch and cleanliness",
+          "approval_required": false,
+          "validation": "exit_status",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        },
+        {
+          "id": "summarise",
+          "description": "Summarise the project",
+          "executor": "agent.claude",
+          "inputs": {
+            "prompt": "Summarise this repository. FAKE_SLEEP=1"
+          },
+          "depends_on": [
+            "status"
+          ],
+          "expected_output": "short summary",
+          "approval_required": false,
+          "validation": "non_empty_result",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        }
+      ]
+    },
+    "source_plan_id": "pln_2061d1a5b882462a",
+    "created_at": 1792375408.5235422,
+    "unsupported_steps": []
+  },
+  "workflows.list": {
+    "workflows": [
+      {
+        "id": "wf_d5dfdff5bace41b8",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "name": "Gated codex edit",
+        "source_plan_id": null,
+        "created_at": 1792375408.5238593,
+        "step_count": 1
+      },
+      {
+        "id": "wf_173f3a34d1994fdb",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "name": "Inspect project",
+        "source_plan_id": "pln_2061d1a5b882462a",
+        "created_at": 1792375408.5235422,
+        "step_count": 2
+      }
+    ]
+  },
+  "workflows.get": {
+    "id": "wf_173f3a34d1994fdb",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "name": "Inspect project",
+    "definition": {
+      "name": "Inspect project",
+      "summary": "Look at the repo, then summarise.",
+      "steps": [
+        {
+          "id": "status",
+          "description": "Check git state",
+          "executor": "git.status",
+          "inputs": {},
+          "depends_on": [],
+          "expected_output": "branch and cleanliness",
+          "approval_required": false,
+          "validation": "exit_status",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        },
+        {
+          "id": "summarise",
+          "description": "Summarise the project",
+          "executor": "agent.claude",
+          "inputs": {
+            "prompt": "Summarise this repository. FAKE_SLEEP=1"
+          },
+          "depends_on": [
+            "status"
+          ],
+          "expected_output": "short summary",
+          "approval_required": false,
+          "validation": "non_empty_result",
+          "mode": "read_only",
+          "on_failure": "stop",
+          "timeout_s": null
+        }
+      ]
+    },
+    "source_plan_id": "pln_2061d1a5b882462a",
+    "created_at": 1792375408.5235422
+  },
+  "runs.start": {
+    "id": "run_f14c56d3decb4acf",
+    "workflow_id": "wf_173f3a34d1994fdb",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "status": "queued",
+    "error": null,
+    "created_at": 1792375408.5245774,
+    "started_at": null,
+    "finished_at": null,
+    "steps": [
+      {
+        "step_id": "status",
+        "state": "pending",
+        "executor": "git.status",
+        "started_at": null,
+        "finished_at": null,
+        "result": null,
+        "error": null,
+        "worktree": null,
+        "verification": []
+      },
+      {
+        "step_id": "summarise",
+        "state": "pending",
+        "executor": "agent.claude",
+        "started_at": null,
+        "finished_at": null,
+        "result": null,
+        "error": null,
+        "worktree": null,
+        "verification": []
+      }
+    ],
+    "last_seq": 1
+  },
+  "runs.get": {
+    "id": "run_f14c56d3decb4acf",
+    "workflow_id": "wf_173f3a34d1994fdb",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "status": "succeeded",
+    "error": null,
+    "created_at": 1792375408.5245774,
+    "started_at": 1792375408.5248091,
+    "finished_at": 1792375409.551435,
+    "steps": [
+      {
+        "step_id": "status",
+        "state": "succeeded",
+        "executor": "git.status",
+        "started_at": 1792375408.525162,
+        "finished_at": 1792375408.5297737,
+        "result": {
+          "output": "{\"valid\": true, \"branch\": \"main\", \"detached\": false, \"head\": \"57f2c7cd01d362a71391e6621cab814ba8fa3fa5\", \"clean\": true, \"changed_files\": 0, \"error\": null}",
+          "data": {
+            "valid": true,
+            "branch": "main",
+            "detached": false,
+            "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+            "clean": true,
+            "changed_files": 0,
+            "error": null
+          }
+        },
+        "error": null,
+        "worktree": null,
+        "verification": [
+          {
+            "method": "exit_status",
+            "passed": true,
+            "detail": {
+              "reason": "executor finished without error"
+            },
+            "ts": 1792375408.5297375
+          }
+        ]
+      },
+      {
+        "step_id": "summarise",
+        "state": "succeeded",
+        "executor": "agent.claude",
+        "started_at": 1792375408.5300434,
+        "finished_at": 1792375409.5512443,
+        "result": {
+          "output": "Fake analysis complete. token [REDACTED] should be redacted.",
+          "job": {
+            "job_id": "job_52a7bc6b5b014c1a",
+            "status": "succeeded",
+            "exit_code": 0,
+            "session_id": "fake-session-1234",
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 5
+            },
+            "stdout_log": "/home/user/.local/state/cedar-brain/logs/jobs/job_52a7bc6b5b014c1a.stdout.log",
+            "stderr_log": "/home/user/.local/state/cedar-brain/logs/jobs/job_52a7bc6b5b014c1a.stderr.log",
+            "malformed_lines": 0,
+            "duration_s": 1.021
+          }
+        },
+        "error": null,
+        "worktree": null,
+        "verification": [
+          {
+            "method": "non_empty_result",
+            "passed": true,
+            "detail": {
+              "reason": "output present"
+            },
+            "ts": 1792375409.5512135
+          }
+        ]
+      }
+    ],
+    "last_seq": 15
+  },
+  "runs.events": {
+    "run_id": "run_f14c56d3decb4acf",
+    "events": [
+      {
+        "seq": 1,
+        "ts": 1792375408.5246646,
+        "event": "run.updated",
+        "data": {
+          "run_id": "run_f14c56d3decb4acf",
+          "seq": 1,
+          "status": "queued",
+          "workflow_id": "wf_173f3a34d1994fdb"
+        }
+      },
+      {
+        "seq": 2,
+        "ts": 1792375408.5249906,
+        "event": "run.updated",
+        "data": {
+          "run_id": "run_f14c56d3decb4acf",
+          "seq": 2,
+          "status": "running"
+        }
+      },
+      {
+        "seq": 3,
+        "ts": 1792375408.5250635,
+        "event": "run.step.updated",
+        "data": {
+          "run_id": "run_f14c56d3decb4acf",
+          "seq": 3,
+          "step_id": "status",
+          "state": "ready",
+          "previous": "pending"
+        }
+      },
+      {
+        "seq": 4,
+        "ts": 1792375408.5252204,
+        "event": "run.step.updated",
+        "data": {
+          "run_id": "run_f14c56d3decb4acf",
+          "seq": 4,
+          "step_id": "status",
+          "state": "running",
+          "previous": "ready"
+        }
+      },
+      {
+        "seq": 5,
+        "ts": 1792375408.5298533,
+        "event": "run.step.updated",
+        "data": {
+          "run_id": "run_f14c56d3decb4acf",
+          "seq": 5,
+          "step_id": "status",
+          "state": "succeeded",
+          "previous": "running"
+        }
+      }
+    ],
+    "last_seq": 5,
+    "more": true
+  },
+  "runs.list": {
+    "runs": [
+      {
+        "id": "run_f14c56d3decb4acf",
+        "workflow_id": "wf_173f3a34d1994fdb",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "status": "succeeded",
+        "created_at": 1792375408.5245774,
+        "started_at": 1792375408.5248091,
+        "finished_at": 1792375409.551435
+      }
+    ]
+  },
+  "runs.approve": {
+    "run_id": "run_6f04fd14f4c34e0f",
+    "step_id": "edit",
+    "approved": false
+  },
+  "runs.cancel": {
+    "id": "run_fa5f105ffc0e4b5a",
+    "workflow_id": "wf_c1e561d2fb9f4612",
+    "project_id": "prj_6db47f0b207c4f2b",
+    "status": "cancelled",
+    "error": {
+      "code": "CANCELLED",
+      "message": "run cancelled"
+    },
+    "created_at": 1792375409.5542738,
+    "started_at": 1792375409.554413,
+    "finished_at": 1792375410.1555192,
+    "steps": [
+      {
+        "step_id": "think",
+        "state": "cancelled",
+        "executor": "agent.claude",
+        "started_at": 1792375409.5545561,
+        "finished_at": 1792375410.1554391,
+        "result": null,
+        "error": null,
+        "worktree": null,
+        "verification": []
+      }
+    ],
+    "last_seq": 10
+  },
+  "projects.set_graph": {
+    "id": "prj_6db47f0b207c4f2b",
+    "name": "cedar-shell",
+    "root": "/home/user/src/cedar-shell",
+    "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+    "graph_path_explicit": false,
+    "created_at": 1792375408.4509656,
+    "updated_at": 1792375410.155899
+  }
+}

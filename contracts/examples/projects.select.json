@@ -1,0 +1,27 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-006",
+      "method": "projects.select",
+      "params": {
+        "project_id": "prj_6db47f0b207c4f2b"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-006",
+      "ok": true,
+      "result": {
+        "id": "prj_6db47f0b207c4f2b",
+        "name": "cedar-shell",
+        "root": "/home/user/src/cedar-shell",
+        "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+        "graph_path_explicit": false,
+        "created_at": 1792375408.4509656,
+        "updated_at": 1792375408.4509656
+      }
+    }
+  }
+]

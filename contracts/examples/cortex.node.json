@@ -1,0 +1,70 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-012",
+      "method": "cortex.node",
+      "params": {
+        "node_id": "canopy"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-012",
+      "ok": true,
+      "result": {
+        "node": {
+          "id": "canopy",
+          "label": "Canopy.qml",
+          "file_type": "code",
+          "source_file": "src/Canopy.qml",
+          "source_location": "L1",
+          "community": 0,
+          "community_name": "Rendering"
+        },
+        "outgoing": [
+          {
+            "source": "canopy",
+            "target": "strata_geometry",
+            "relation": "imports",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          }
+        ],
+        "incoming": [
+          {
+            "source": "bar",
+            "target": "canopy",
+            "relation": "imports",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          },
+          {
+            "source": "design_doc",
+            "target": "canopy",
+            "relation": "cites",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          }
+        ],
+        "outgoing_total": 1,
+        "incoming_total": 2,
+        "relationship_kind": "static",
+        "source": {
+          "reference": "src/Canopy.qml",
+          "path": "/home/user/src/cedar-shell/src/Canopy.qml",
+          "within_project": true,
+          "exists": true,
+          "line": 1
+        }
+      }
+    }
+  }
+]

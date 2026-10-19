@@ -1,0 +1,32 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-001",
+      "method": "system.health",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-001",
+      "ok": true,
+      "result": {
+        "status": "ok",
+        "version": "0.1.0",
+        "protocol": 1,
+        "instance_id": "16fa65b121c6",
+        "pid": 162979,
+        "uptime_s": 0.0,
+        "database": {
+          "ok": true,
+          "schema_version": 1,
+          "expected_schema_version": 1
+        },
+        "active_runs": 0,
+        "active_agent_jobs": 0,
+        "active_project_id": null
+      }
+    }
+  }
+]

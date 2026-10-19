@@ -1,0 +1,42 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-009",
+      "method": "cortex.search",
+      "params": {
+        "query": "StrataGeometry"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-009",
+      "ok": true,
+      "result": {
+        "results": [
+          {
+            "id": "strata_geometry",
+            "label": "StrataGeometry.js",
+            "file_type": "code",
+            "source_file": "src/StrataGeometry.js",
+            "source_location": "L1",
+            "community": 0,
+            "community_name": "Rendering",
+            "score": 70
+          },
+          {
+            "id": "strata_geometry.build",
+            "label": "build()",
+            "file_type": "code",
+            "source_file": "src/StrataGeometry.js",
+            "source_location": "L10",
+            "community": 0,
+            "community_name": "Rendering",
+            "score": 40
+          }
+        ]
+      }
+    }
+  }
+]

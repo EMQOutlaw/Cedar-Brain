@@ -1,0 +1,2 @@
+#!/bin/sh
+FAKE_KIND=codex exec python3 "$(dirname "$0")/fake_agent.py" "$@"

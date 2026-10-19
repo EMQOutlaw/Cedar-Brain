@@ -1,0 +1,37 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-019",
+      "method": "agents.status",
+      "params": {
+        "agent_id": "codex"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-019",
+      "ok": true,
+      "result": {
+        "id": "codex",
+        "name": "Codex CLI",
+        "status": "available",
+        "executable": "/usr/bin/codex",
+        "version": "codex-cli 0.160.0",
+        "authenticated": true,
+        "auth_method": "chatgpt",
+        "modes": [
+          "read_only",
+          "write"
+        ],
+        "missing_flags": [],
+        "detail": null,
+        "checked_at": 1792375408.389172,
+        "active_jobs": 0,
+        "recent_jobs": [],
+        "max_concurrent_processes": 2
+      }
+    }
+  }
+]

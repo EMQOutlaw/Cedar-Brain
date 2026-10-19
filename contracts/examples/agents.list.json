@@ -1,0 +1,53 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-018",
+      "method": "agents.list",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-018",
+      "ok": true,
+      "result": {
+        "agents": [
+          {
+            "id": "claude",
+            "name": "Claude Code",
+            "status": "available",
+            "executable": "/usr/bin/claude",
+            "version": "2.1.0 (Claude Code)",
+            "authenticated": true,
+            "auth_method": "fake",
+            "modes": [
+              "read_only"
+            ],
+            "missing_flags": [],
+            "detail": null,
+            "checked_at": 1792375408.3888602,
+            "active_jobs": 0
+          },
+          {
+            "id": "codex",
+            "name": "Codex CLI",
+            "status": "available",
+            "executable": "/usr/bin/codex",
+            "version": "codex-cli 0.160.0",
+            "authenticated": true,
+            "auth_method": "chatgpt",
+            "modes": [
+              "read_only",
+              "write"
+            ],
+            "missing_flags": [],
+            "detail": null,
+            "checked_at": 1792375408.389172,
+            "active_jobs": 0
+          }
+        ]
+      }
+    }
+  }
+]

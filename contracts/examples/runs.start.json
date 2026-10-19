@@ -1,0 +1,75 @@
+[
+  {
+    "note": "error: approve must be true",
+    "request": {
+      "v": 1,
+      "id": "req-026",
+      "method": "runs.start",
+      "params": {
+        "workflow_id": "wf_173f3a34d1994fdb",
+        "approve": false
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-026",
+      "ok": false,
+      "error": {
+        "code": "APPROVAL_REQUIRED",
+        "message": "runs.start requires approve=true"
+      }
+    }
+  },
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-027",
+      "method": "runs.start",
+      "params": {
+        "workflow_id": "wf_173f3a34d1994fdb",
+        "approve": true
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-027",
+      "ok": true,
+      "result": {
+        "id": "run_f14c56d3decb4acf",
+        "workflow_id": "wf_173f3a34d1994fdb",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "status": "queued",
+        "error": null,
+        "created_at": 1792375408.5245774,
+        "started_at": null,
+        "finished_at": null,
+        "steps": [
+          {
+            "step_id": "status",
+            "state": "pending",
+            "executor": "git.status",
+            "started_at": null,
+            "finished_at": null,
+            "result": null,
+            "error": null,
+            "worktree": null,
+            "verification": []
+          },
+          {
+            "step_id": "summarise",
+            "state": "pending",
+            "executor": "agent.claude",
+            "started_at": null,
+            "finished_at": null,
+            "result": null,
+            "error": null,
+            "worktree": null,
+            "verification": []
+          }
+        ],
+        "last_seq": 1
+      }
+    }
+  }
+]

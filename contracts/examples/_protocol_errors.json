@@ -1,0 +1,28 @@
+[
+  {
+    "note": "invalid JSON",
+    "request_line": "{oops",
+    "response": {
+      "v": 1,
+      "id": null,
+      "ok": false,
+      "error": {
+        "code": "PARSE_ERROR",
+        "message": "invalid JSON: Expecting property name enclosed in double quotes"
+      }
+    }
+  },
+  {
+    "note": "unsupported version",
+    "request_line": "{\"v\":2,\"id\":\"x-1\",\"method\":\"system.health\",\"params\":{}}",
+    "response": {
+      "v": 1,
+      "id": "x-1",
+      "ok": false,
+      "error": {
+        "code": "UNSUPPORTED_VERSION",
+        "message": "unsupported protocol version 2; server speaks v1"
+      }
+    }
+  }
+]

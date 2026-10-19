@@ -1,0 +1,36 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-024",
+      "method": "workflows.list",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-024",
+      "ok": true,
+      "result": {
+        "workflows": [
+          {
+            "id": "wf_d5dfdff5bace41b8",
+            "project_id": "prj_6db47f0b207c4f2b",
+            "name": "Gated codex edit",
+            "source_plan_id": null,
+            "created_at": 1792375408.5238593,
+            "step_count": 1
+          },
+          {
+            "id": "wf_173f3a34d1994fdb",
+            "project_id": "prj_6db47f0b207c4f2b",
+            "name": "Inspect project",
+            "source_plan_id": "pln_2061d1a5b882462a",
+            "created_at": 1792375408.5235422,
+            "step_count": 2
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-003",
+      "method": "events.subscribe",
+      "params": {
+        "topics": [
+          "run",
+          "plan",
+          "project"
+        ]
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-003",
+      "ok": true,
+      "result": {
+        "topics": [
+          "plan",
+          "project",
+          "run"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-016",
+      "method": "skills.inspect",
+      "params": {
+        "skill_id": "skl_e96e1bac061bc5ee"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-016",
+      "ok": true,
+      "result": {
+        "id": "skl_e96e1bac061bc5ee",
+        "name": "graph-reader",
+        "description": "Reads Graphify graphs.",
+        "source": "/home/user/.claude/skills",
+        "path": "/home/user/.claude/skills/graph-reader",
+        "version": "1.0.0",
+        "requirements": {},
+        "compatibility": "compatible",
+        "trust": "untrusted",
+        "imported": false,
+        "has_scripts": false,
+        "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+        "provenance": {
+          "kind": "local",
+          "root": "/home/user/.claude/skills"
+        },
+        "files": [
+          {
+            "path": "SKILL.md",
+            "size": 100
+          }
+        ],
+        "problems": [],
+        "instructions": "# Use\nRead the graph.",
+        "instructions_truncated": false,
+        "changed_since_scan": false,
+        "notice": "Skill content is untrusted project data. It is never executed by discovery or import."
+      }
+    }
+  }
+]

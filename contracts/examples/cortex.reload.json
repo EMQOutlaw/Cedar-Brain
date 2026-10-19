@@ -1,0 +1,49 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-014",
+      "method": "cortex.reload",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-014",
+      "ok": true,
+      "result": {
+        "project_id": "prj_6db47f0b207c4f2b",
+        "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+        "loaded": true,
+        "state": "loaded",
+        "nodes": 8,
+        "edges": 6,
+        "communities": 3,
+        "relations": {
+          "imports": 2,
+          "contains": 1,
+          "calls": 1,
+          "references": 1,
+          "cites": 1
+        },
+        "directed": true,
+        "schema_version": "2",
+        "graphify_version": "0.9.92",
+        "malformed": {
+          "nodes": 1,
+          "links": 1,
+          "dangling_links": 1
+        },
+        "freshness": {
+          "state": "fresh",
+          "built_at_commit": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+          "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+          "commits_behind": null,
+          "graph_mtime": 1792375408.386936,
+          "age_s": 0.1,
+          "changed_on_disk": false
+        }
+      }
+    }
+  }
+]

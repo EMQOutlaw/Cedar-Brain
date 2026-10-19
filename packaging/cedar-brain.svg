@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- CEDAR Brain: mycelium nodes networked under the cedar's canopy. -->
+  <path d="M8 14 L50 14 L56 20 L56 50 L14 50 L8 44 Z" fill="#101E19" stroke="#3FE0C5" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M14 20 H34" stroke="#3FE0C5" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+  <g stroke="#3FE0C5" stroke-width="1.5" stroke-linecap="round" opacity=".55" fill="none">
+    <path d="M20 38 L32 30 L44 38"/><path d="M32 30 L32 42"/><path d="M20 38 L32 42 L44 38"/><path d="M24 28 L32 30 L40 27"/>
+  </g>
+  <circle cx="32" cy="30" r="4.5" fill="#9DFFB0"/>
+  <circle cx="20" cy="38" r="3.5" fill="#F2C879"/>
+  <circle cx="44" cy="38" r="3.5" fill="#3FE0C5"/>
+  <circle cx="32" cy="42" r="2.8" fill="#3FE0C5"/>
+  <circle cx="24" cy="28" r="2.2" fill="#F2C879" opacity=".85"/>
+  <circle cx="40" cy="27" r="2.2" fill="#9DFFB0" opacity=".85"/>
+</svg>

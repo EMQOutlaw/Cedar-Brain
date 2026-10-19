@@ -1,0 +1,46 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-007",
+      "method": "projects.status",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-007",
+      "ok": true,
+      "result": {
+        "project": {
+          "id": "prj_6db47f0b207c4f2b",
+          "name": "cedar-shell",
+          "root": "/home/user/src/cedar-shell",
+          "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+          "graph_path_explicit": false,
+          "created_at": 1792375408.4509656,
+          "updated_at": 1792375408.4509656
+        },
+        "active": true,
+        "git": {
+          "valid": true,
+          "branch": "main",
+          "detached": false,
+          "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+          "clean": true,
+          "changed_files": 0,
+          "error": null
+        },
+        "graph": {
+          "path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+          "state": "present"
+        },
+        "capabilities": {
+          "git_status": true,
+          "cortex": true,
+          "worktrees": true
+        }
+      }
+    }
+  }
+]

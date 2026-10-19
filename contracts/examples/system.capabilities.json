@@ -1,0 +1,219 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-002",
+      "method": "system.capabilities",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-002",
+      "ok": true,
+      "result": {
+        "protocol": 1,
+        "version": "0.1.0",
+        "features": {
+          "ipc.unix_socket": {
+            "status": "supported"
+          },
+          "ipc.event_subscriptions": {
+            "status": "supported"
+          },
+          "projects.registry": {
+            "status": "supported"
+          },
+          "cortex.queries": {
+            "status": "supported"
+          },
+          "cortex.graph_update": {
+            "status": "unavailable",
+            "reason": "graphify executable not found"
+          },
+          "skills.local_discovery": {
+            "status": "supported"
+          },
+          "skills.local_import": {
+            "status": "supported"
+          },
+          "skills.remote_install": {
+            "status": "not_implemented",
+            "reason": "planned after local discovery is proven"
+          },
+          "skills.execution": {
+            "status": "not_implemented",
+            "reason": "skills are inspected, never executed, in this release"
+          },
+          "agents.claude": {
+            "status": "supported"
+          },
+          "agents.codex": {
+            "status": "supported"
+          },
+          "agents.claude.write": {
+            "status": "unavailable",
+            "reason": "claude -p has no OS-level sandbox; Claude steps are read-only"
+          },
+          "agents.codex.write": {
+            "status": "supported"
+          },
+          "agents.session_resume": {
+            "status": "not_implemented",
+            "reason": "sessions are recorded, never resumed"
+          },
+          "agents.ollama": {
+            "status": "not_implemented",
+            "reason": "planned for a later stage"
+          },
+          "pathfinder.plans": {
+            "status": "supported"
+          },
+          "hyphae.workflows": {
+            "status": "supported"
+          },
+          "hyphae.parallel_steps": {
+            "status": "supported"
+          },
+          "hyphae.step_approval": {
+            "status": "supported"
+          },
+          "hyphae.auto_merge": {
+            "status": "not_implemented",
+            "reason": "by design: never merges or pushes"
+          },
+          "remote_access": {
+            "status": "not_implemented",
+            "reason": "by design: local Unix socket only"
+          }
+        },
+        "methods": [
+          "agents.list",
+          "agents.status",
+          "cortex.communities",
+          "cortex.dependencies",
+          "cortex.impact",
+          "cortex.node",
+          "cortex.reload",
+          "cortex.search",
+          "cortex.status",
+          "events.subscribe",
+          "events.unsubscribe",
+          "plans.create",
+          "plans.get",
+          "plans.validate",
+          "projects.add",
+          "projects.list",
+          "projects.remove",
+          "projects.select",
+          "projects.set_graph",
+          "projects.status",
+          "runs.approve",
+          "runs.cancel",
+          "runs.events",
+          "runs.get",
+          "runs.list",
+          "runs.start",
+          "skills.import_local",
+          "skills.inspect",
+          "skills.list",
+          "system.capabilities",
+          "system.health",
+          "workflows.create",
+          "workflows.get",
+          "workflows.list"
+        ],
+        "executors": [
+          {
+            "id": "agent.claude",
+            "description": "Claude Code CLI, read-only tools (Read, Grep, Glob) in the project root",
+            "modes": [
+              "read_only"
+            ],
+            "inputs": {
+              "prompt": {
+                "type": "str",
+                "required": true
+              }
+            }
+          },
+          {
+            "id": "agent.codex",
+            "description": "Codex CLI. read_only: OS sandbox, read-only. write: OS sandbox limited to a fresh git worktree; requires approval",
+            "modes": [
+              "read_only",
+              "write"
+            ],
+            "inputs": {
+              "prompt": {
+                "type": "str",
+                "required": true
+              }
+            }
+          },
+          {
+            "id": "cortex.search",
+            "description": "Search the project's Graphify graph (deterministic, no model)",
+            "modes": [
+              "read_only"
+            ],
+            "inputs": {
+              "query": {
+                "type": "str",
+                "required": true
+              },
+              "limit": {
+                "type": "int",
+                "required": false
+              }
+            }
+          },
+          {
+            "id": "cortex.impact",
+            "description": "List components that statically depend on a node or file (deterministic)",
+            "modes": [
+              "read_only"
+            ],
+            "inputs": {
+              "node_ids": {
+                "type": "list",
+                "required": false
+              },
+              "path": {
+                "type": "str",
+                "required": false
+              },
+              "depth": {
+                "type": "int",
+                "required": false
+              }
+            }
+          },
+          {
+            "id": "git.status",
+            "description": "Report branch, HEAD and working-tree cleanliness (read-only)",
+            "modes": [
+              "read_only"
+            ],
+            "inputs": {}
+          }
+        ],
+        "limits": {
+          "max_message_bytes": 1048576,
+          "max_plan_steps": 12,
+          "max_parallel_steps": 2,
+          "max_agent_processes": 2,
+          "default_step_timeout_s": 30
+        },
+        "event_topics": [
+          "system",
+          "project",
+          "cortex",
+          "agent",
+          "plan",
+          "run"
+        ]
+      }
+    }
+  }
+]

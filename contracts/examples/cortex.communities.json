@@ -1,0 +1,50 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-013",
+      "method": "cortex.communities",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-013",
+      "ok": true,
+      "result": {
+        "communities": [
+          {
+            "id": 0,
+            "name": "Rendering",
+            "size": 3,
+            "sample": [
+              "StrataGeometry.js",
+              "build()",
+              "Canopy.qml"
+            ]
+          },
+          {
+            "id": 1,
+            "name": "Shell",
+            "size": 3,
+            "sample": [
+              "Bar.qml",
+              "NotificationService.qml",
+              "Whispers.qml"
+            ]
+          },
+          {
+            "id": 2,
+            "name": null,
+            "size": 1,
+            "sample": [
+              "Design notes"
+            ]
+          }
+        ],
+        "total": 3,
+        "truncated": false
+      }
+    }
+  }
+]

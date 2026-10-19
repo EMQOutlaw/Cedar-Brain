@@ -1,0 +1,61 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-025",
+      "method": "workflows.get",
+      "params": {
+        "workflow_id": "wf_173f3a34d1994fdb"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-025",
+      "ok": true,
+      "result": {
+        "id": "wf_173f3a34d1994fdb",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "name": "Inspect project",
+        "definition": {
+          "name": "Inspect project",
+          "summary": "Look at the repo, then summarise.",
+          "steps": [
+            {
+              "id": "status",
+              "description": "Check git state",
+              "executor": "git.status",
+              "inputs": {},
+              "depends_on": [],
+              "expected_output": "branch and cleanliness",
+              "approval_required": false,
+              "validation": "exit_status",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            },
+            {
+              "id": "summarise",
+              "description": "Summarise the project",
+              "executor": "agent.claude",
+              "inputs": {
+                "prompt": "Summarise this repository. FAKE_SLEEP=1"
+              },
+              "depends_on": [
+                "status"
+              ],
+              "expected_output": "short summary",
+              "approval_required": false,
+              "validation": "non_empty_result",
+              "mode": "read_only",
+              "on_failure": "stop",
+              "timeout_s": null
+            }
+          ]
+        },
+        "source_plan_id": "pln_2061d1a5b882462a",
+        "created_at": 1792375408.5235422
+      }
+    }
+  }
+]

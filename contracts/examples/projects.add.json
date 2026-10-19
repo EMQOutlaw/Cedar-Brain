@@ -1,0 +1,47 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-005",
+      "method": "projects.add",
+      "params": {
+        "path": "/home/user/src/cedar-shell"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-005",
+      "ok": true,
+      "result": {
+        "id": "prj_6db47f0b207c4f2b",
+        "name": "cedar-shell",
+        "root": "/home/user/src/cedar-shell",
+        "graph_path": "/home/user/src/cedar-shell/graphify-out/graph.json",
+        "graph_path_explicit": false,
+        "created_at": 1792375408.4509656,
+        "updated_at": 1792375408.4509656
+      }
+    }
+  },
+  {
+    "note": "error: not a git repository",
+    "request": {
+      "v": 1,
+      "id": "req-006",
+      "method": "projects.add",
+      "params": {
+        "path": "/home/user/src/missing"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-006",
+      "ok": false,
+      "error": {
+        "code": "INVALID_REPOSITORY",
+        "message": "path is not a directory"
+      }
+    }
+  }
+]

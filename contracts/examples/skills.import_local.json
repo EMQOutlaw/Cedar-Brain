@@ -1,0 +1,64 @@
+[
+  {
+    "note": "error: path outside approved locations",
+    "request": {
+      "v": 1,
+      "id": "req-017",
+      "method": "skills.import_local",
+      "params": {
+        "path": "/etc"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-017",
+      "ok": false,
+      "error": {
+        "code": "PATH_REJECTED",
+        "message": "skill path points into a protected location"
+      }
+    }
+  },
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-018",
+      "method": "skills.import_local",
+      "params": {
+        "path": "/home/user/.claude/skills/graph-reader"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-018",
+      "ok": true,
+      "result": {
+        "id": "skl_e96e1bac061bc5ee",
+        "name": "graph-reader",
+        "description": "Reads Graphify graphs.",
+        "source": "import",
+        "path": "/home/user/.claude/skills/graph-reader",
+        "version": "1.0.0",
+        "requirements": {},
+        "compatibility": "compatible",
+        "trust": "untrusted",
+        "imported": true,
+        "has_scripts": false,
+        "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+        "provenance": {
+          "kind": "local_import",
+          "original_path": "/home/user/.claude/skills/graph-reader"
+        },
+        "files": [
+          {
+            "path": "SKILL.md",
+            "size": 100
+          }
+        ],
+        "problems": [],
+        "notice": "Skill content is untrusted project data. It is never executed by discovery or import."
+      }
+    }
+  }
+]

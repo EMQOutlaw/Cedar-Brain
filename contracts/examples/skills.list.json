@@ -1,0 +1,45 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-015",
+      "method": "skills.list",
+      "params": {
+        "refresh": true
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-015",
+      "ok": true,
+      "result": {
+        "skills": [
+          {
+            "id": "skl_e96e1bac061bc5ee",
+            "name": "graph-reader",
+            "description": "Reads Graphify graphs.",
+            "source": "/home/user/.claude/skills",
+            "path": "/home/user/.claude/skills/graph-reader",
+            "version": "1.0.0",
+            "requirements": {},
+            "compatibility": "compatible",
+            "trust": "untrusted",
+            "imported": false,
+            "has_scripts": false,
+            "content_sha256": "e967c00d0047d3cacd12b5034a50796553692fb6cdf4fa56d76ff2c48d8a2cae",
+            "provenance": {
+              "kind": "local",
+              "root": "/home/user/.claude/skills"
+            }
+          }
+        ],
+        "problems": [],
+        "scanned_at": 1792375408.4695926,
+        "skill_dirs": [
+          "/home/user/.claude/skills"
+        ]
+      }
+    }
+  }
+]

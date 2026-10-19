@@ -1,0 +1,138 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-027",
+      "method": "runs.get",
+      "params": {
+        "run_id": "run_f14c56d3decb4acf"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-027",
+      "ok": true,
+      "result": {
+        "id": "run_f14c56d3decb4acf",
+        "workflow_id": "wf_173f3a34d1994fdb",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "status": "succeeded",
+        "error": null,
+        "created_at": 1792375408.5245774,
+        "started_at": 1792375408.5248091,
+        "finished_at": 1792375409.551435,
+        "steps": [
+          {
+            "step_id": "status",
+            "state": "succeeded",
+            "executor": "git.status",
+            "started_at": 1792375408.525162,
+            "finished_at": 1792375408.5297737,
+            "result": {
+              "output": "{\"valid\": true, \"branch\": \"main\", \"detached\": false, \"head\": \"57f2c7cd01d362a71391e6621cab814ba8fa3fa5\", \"clean\": true, \"changed_files\": 0, \"error\": null}",
+              "data": {
+                "valid": true,
+                "branch": "main",
+                "detached": false,
+                "head": "57f2c7cd01d362a71391e6621cab814ba8fa3fa5",
+                "clean": true,
+                "changed_files": 0,
+                "error": null
+              }
+            },
+            "error": null,
+            "worktree": null,
+            "verification": [
+              {
+                "method": "exit_status",
+                "passed": true,
+                "detail": {
+                  "reason": "executor finished without error"
+                },
+                "ts": 1792375408.5297375
+              }
+            ]
+          },
+          {
+            "step_id": "summarise",
+            "state": "succeeded",
+            "executor": "agent.claude",
+            "started_at": 1792375408.5300434,
+            "finished_at": 1792375409.5512443,
+            "result": {
+              "output": "Fake analysis complete. token [REDACTED] should be redacted.",
+              "job": {
+                "job_id": "job_52a7bc6b5b014c1a",
+                "status": "succeeded",
+                "exit_code": 0,
+                "session_id": "fake-session-1234",
+                "usage": {
+                  "input_tokens": 10,
+                  "output_tokens": 5
+                },
+                "stdout_log": "/home/user/.local/state/cedar-brain/logs/jobs/job_52a7bc6b5b014c1a.stdout.log",
+                "stderr_log": "/home/user/.local/state/cedar-brain/logs/jobs/job_52a7bc6b5b014c1a.stderr.log",
+                "malformed_lines": 0,
+                "duration_s": 1.021
+              }
+            },
+            "error": null,
+            "worktree": null,
+            "verification": [
+              {
+                "method": "non_empty_result",
+                "passed": true,
+                "detail": {
+                  "reason": "output present"
+                },
+                "ts": 1792375409.5512135
+              }
+            ]
+          }
+        ],
+        "last_seq": 15
+      }
+    }
+  },
+  {
+    "note": "a run waiting for step approval",
+    "request": {
+      "v": 1,
+      "id": "req-030",
+      "method": "runs.get",
+      "params": {
+        "run_id": "run_6f04fd14f4c34e0f"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-030",
+      "ok": true,
+      "result": {
+        "id": "run_6f04fd14f4c34e0f",
+        "workflow_id": "wf_d5dfdff5bace41b8",
+        "project_id": "prj_6db47f0b207c4f2b",
+        "status": "awaiting_approval",
+        "error": null,
+        "created_at": 1792375409.5527353,
+        "started_at": 1792375409.5529203,
+        "finished_at": null,
+        "steps": [
+          {
+            "step_id": "edit",
+            "state": "awaiting_approval",
+            "executor": "agent.codex",
+            "started_at": null,
+            "finished_at": null,
+            "result": null,
+            "error": null,
+            "worktree": null,
+            "verification": []
+          }
+        ],
+        "last_seq": 5
+      }
+    }
+  }
+]

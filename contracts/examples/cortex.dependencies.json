@@ -1,0 +1,124 @@
+[
+  {
+    "note": null,
+    "request": {
+      "v": 1,
+      "id": "req-010",
+      "method": "cortex.dependencies",
+      "params": {
+        "node_id": "strata_geometry",
+        "direction": "in",
+        "depth": 2
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-010",
+      "ok": true,
+      "result": {
+        "root": "strata_geometry",
+        "direction": "in",
+        "depth": 2,
+        "nodes": [
+          {
+            "id": "canopy",
+            "label": "Canopy.qml",
+            "file_type": "code",
+            "source_file": "src/Canopy.qml",
+            "source_location": "L1",
+            "community": 0,
+            "community_name": "Rendering",
+            "distance": 1,
+            "via": {
+              "from": "strata_geometry",
+              "relation": "imports",
+              "evidence": "static_extracted"
+            }
+          },
+          {
+            "id": "bar",
+            "label": "Bar.qml",
+            "file_type": "code",
+            "source_file": "src/Bar.qml",
+            "source_location": "L1",
+            "community": 1,
+            "community_name": "Shell",
+            "distance": 2,
+            "via": {
+              "from": "canopy",
+              "relation": "imports",
+              "evidence": "static_extracted"
+            }
+          },
+          {
+            "id": "design_doc",
+            "label": "Design notes",
+            "file_type": "doc_ref",
+            "source_file": "docs/design.md",
+            "source_location": null,
+            "community": 2,
+            "community_name": null,
+            "distance": 2,
+            "via": {
+              "from": "canopy",
+              "relation": "cites",
+              "evidence": "static_extracted"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "canopy",
+            "target": "strata_geometry",
+            "relation": "imports",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          },
+          {
+            "source": "bar",
+            "target": "canopy",
+            "relation": "imports",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          },
+          {
+            "source": "design_doc",
+            "target": "canopy",
+            "relation": "cites",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "evidence": "static_extracted",
+            "source_file": null
+          }
+        ],
+        "truncated": false,
+        "relationship_kind": "static",
+        "note": "Relationships are static code relationships from the Graphify graph; they do not prove runtime dependencies. 'inferred' and 'ambiguous' edges are suggestions."
+      }
+    }
+  },
+  {
+    "note": "error: unknown node",
+    "request": {
+      "v": 1,
+      "id": "req-015",
+      "method": "cortex.dependencies",
+      "params": {
+        "node_id": "nope"
+      }
+    },
+    "response": {
+      "v": 1,
+      "id": "req-015",
+      "ok": false,
+      "error": {
+        "code": "NOT_FOUND",
+        "message": "no graph node 'nope'"
+      }
+    }
+  }
+]

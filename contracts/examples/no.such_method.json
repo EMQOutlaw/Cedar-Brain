@@ -1,0 +1,20 @@
+[
+  {
+    "note": "error: unknown method",
+    "request": {
+      "v": 1,
+      "id": "req-033",
+      "method": "no.such_method",
+      "params": {}
+    },
+    "response": {
+      "v": 1,
+      "id": "req-033",
+      "ok": false,
+      "error": {
+        "code": "UNKNOWN_METHOD",
+        "message": "unknown method 'no.such_method'"
+      }
+    }
+  }
+]
